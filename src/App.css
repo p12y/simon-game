@@ -12,7 +12,6 @@ body {
 #base {
   width: 80vmin;
   height: 80vmin;
-  background: gray;
   border-radius: 50%;
   position: relative;
 }
@@ -20,13 +19,13 @@ body {
 #face {
   width: 40vmin;
   height: 40vmin;
-  background: gray;
+  background: rgb(55, 55, 55);
   border-radius: 50%;
   position: absolute;
   top: 25%;
   left: 25%;
   background: white;
-  border: 2vmin solid gray;
+  border: 2vmin solid rgb(55, 55, 55);
   box-sizing: border-box;
 }
 
@@ -39,7 +38,7 @@ body {
   width: 50%;
   height: 100%;
   background: black;
-  border: 3vmin solid gray;
+  border: 3vmin solid rgb(55, 55, 55);
   box-sizing: border-box;
 }
 
@@ -63,22 +62,38 @@ body {
 
 .top.left {
   border-top-left-radius: 100%;
-  background: rgb(74, 154, 74);
+  background: rgb(120, 189, 120);
+}
+
+.top.left.active {
+  background: rgb(0, 255, 0);
 }
 
 .top.right {
   border-top-right-radius: 100%;
-  background: rgb(237, 50, 50);
+  background: rgb(177, 74, 74);
+}
+
+.top.right.active {
+  background: rgb(255, 0, 0);
 }
 
 .bottom.left {
   border-bottom-left-radius: 100%;
-  background: rgb(235, 235, 61);
+  background: rgb(199, 199, 83);
+}
+
+.bottom.left.active {
+  background: rgb(255, 255, 0);
 }
 
 .bottom.right {
   border-bottom-right-radius: 100%;
-  background: rgb(51, 51, 220);
+  background: rgb(83, 83, 175);
+}
+
+.bottom.right.active {
+  background: rgb(0, 0, 255);
 }
 
 #face h1 {
@@ -86,6 +101,7 @@ body {
   text-align: center;
   font-size: 8vmin;
   margin-bottom: 0;
+  color: rgb(23, 23, 23);
 }
 
 .reg {
@@ -106,14 +122,14 @@ body {
   height: 6vmin;
   background: rgb(24, 10, 10);
   border-radius: 15%;
-  border: 0.4vmin solid gray;
+  border: 0.4vmin solid rgb(55, 55, 55);
   float: left;
   display: table;
 }
 
 #display-content {
   font-family: 'VT323', monospace;
-  color: rgb(184, 29, 29);
+  color: rgb(70, 12, 12);
   height: 100%;
   font-size: 4vmin;
   text-align: center;
@@ -121,20 +137,25 @@ body {
   vertical-align: middle;
 }
 
+#display-content.on {
+  color: rgb(255, 0, 0);
+}
+
 .btn {
   width: 5vmin;
   height: 5vmin;
-  background: gray;
+  background: rgb(55, 55, 55);
   display: inline-block;
   border-radius: 50%;
   position: absolute;
   top: 50%;
   margin: -2.5vmin 0 0 -2.5vmin;
-  border: 0.8vmin solid gray;
+  border: 0.8vmin solid rgb(55, 55, 55);
   box-sizing: border-box;
   -webkit-box-shadow: 2px 2px 4px 1px   rgba(0,0,0,0.6);
   -moz-box-shadow: 2px 2px 4px 1px rgba(0,0,0,0.6);
   box-shadow: 2px 2px 4px 1px rgba(0,0,0,0.6);
+  cursor: pointer;
 }
 
 .btn.start {
@@ -161,21 +182,25 @@ body {
   border-radius: 10%;
   margin-top: 1vmin;
   position: relative;
+  box-sizing: border-box;
+  border: 0.2vmin solid rgb(55, 55, 55);
+  cursor: pointer;
 }
 
 #switch {
-  width: 2.8vmin;
-  height: 2.8vmin;
+  width: 3vmin;
+  height: 3vmin;
   background: rgb(124, 185, 250);
   box-sizing: border-box;
   position: absolute;
   border-radius: 15%;
+  left: 0;
+  right: 0;
   top: 0;
   bottom: 0;
-  left: 0;
   margin: auto;
-  margin-left: 0.5vmin;
-  margin-right: 0.5vmin;
+  margin-left: 0.2vmin;
+  margin-right: 0.2vmin;
 }
 
 #strict-led {
@@ -188,6 +213,10 @@ body {
   position: absolute;
   top: 16.4vmin;
   left: 26.4vmin;
+}
+
+#strict-led.on {
+  background: rgb(184, 4, 4);
 }
 
 .inline-label {

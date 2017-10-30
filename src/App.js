@@ -1,39 +1,65 @@
 import React, { Component } from 'react';
 import './App.css';
+import Switch from './components/switch';
+import Button from './components/button';
+import Control from './components/control';
+
+function randNum(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function generateSteps(length) {
+  return Array.from(Array(length), () => randNum(1,4));
+}
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      on: false,
+      start: false,
+      strict: false,
+      steps: generateSteps(20)
+     }
+
+     this.handleSwitch = this.handleSwitch.bind(this);
+     this.handleStart = this.handleStart.bind(this);
+  }
+
+  handleSwitch() {
+    this.setState({on: !this.state.on});
+  }
+
+  handleStart() {
+    this.setState({start: !this.state.start});
+  }
+
   render() {
     return (
       <div className="App">
         <div id="base">
           <div className="row">
-            <div className="control top left"></div>
-            <div className="control top right"></div>
+            <Control className="top left" active={false} />
+            <Control className="top right" active={false} />
           </div>
           <div className="row">
-            <div className="control bottom left"></div>
-            <div className="control bottom right"></div>
+          <Control className="bottom left" active={false} />
+          <Control className="bottom right" active={false} />
           </div>
           <div id="face">
-            <div id="strict-led"></div>
+            <div id="strict-led" className="off"></div>
             <h1>Simon<span className="reg">®</span></h1>
             <div className="face-controls">
               <div id="display">
-                <div id="display-content">--</div>
+                <div id="display-content" className={this.state.on ? 'on' : 'off'}>--</div>
               </div>
-              <div className="btn start"></div>
-              <div className="btn strict"></div>
+              <Button className="start" onClick={this.handleStart} />
+              <Button className="strict" />
               <span className="label left">COUNT</span>
               <span className="label middle">START</span>
               <span className="label right">STRICT</span>
             </div>
-            <div id="switch-container">
-              <div id="switch-slot">
-                <div id="switch"></div>
-                <span className="inline-label left">OFF</span>
-                <span className="inline-label right">ON</span>
-              </div>
-            </div>
+            <Switch onClick={this.handleSwitch} on={this.state.on} />
           </div>
         </div>
       </div>
