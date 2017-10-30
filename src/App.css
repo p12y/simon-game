@@ -158,6 +158,12 @@ body {
   cursor: pointer;
 }
 
+.btn:active {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
 .btn.start {
   left: 15vmin;
   background: rgb(232, 23, 23);
