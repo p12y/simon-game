@@ -1,0 +1,227 @@
+body {
+  background: url(https://www.toptal.com/designers/subtlepatterns/patterns/vintage-concrete.png);
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#base {
+  width: 80vmin;
+  height: 80vmin;
+  background: gray;
+  border-radius: 50%;
+  position: relative;
+}
+
+#face {
+  width: 40vmin;
+  height: 40vmin;
+  background: gray;
+  border-radius: 50%;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  background: white;
+  border: 2vmin solid gray;
+  box-sizing: border-box;
+}
+
+.row {
+  height: 50%;
+  width: 100%;
+}
+
+.control {
+  width: 50%;
+  height: 100%;
+  background: black;
+  border: 3vmin solid gray;
+  box-sizing: border-box;
+}
+
+.left {
+  float: left;
+  border-right-width: 1.5vmin;
+}
+
+.right {
+  float: right;
+  border-left-width: 1.5vmin;
+}
+
+.top {
+  border-bottom-width: 1.5vmin;
+}
+
+.bottom {
+  border-top-width: 1.5vmin;
+}
+
+.top.left {
+  border-top-left-radius: 100%;
+  background: rgb(74, 154, 74);
+}
+
+.top.right {
+  border-top-right-radius: 100%;
+  background: rgb(237, 50, 50);
+}
+
+.bottom.left {
+  border-bottom-left-radius: 100%;
+  background: rgb(235, 235, 61);
+}
+
+.bottom.right {
+  border-bottom-right-radius: 100%;
+  background: rgb(51, 51, 220);
+}
+
+#face h1 {
+  font-family: 'Fredoka One', cursive;
+  text-align: center;
+  font-size: 8vmin;
+  margin-bottom: 0;
+}
+
+.reg {
+  font-size: 3vmin;
+  top: -3vmin;
+  position: relative;
+}
+
+.face-controls {
+  display: table;
+  width: 100%;
+  margin: 3vmin;
+  position: relative;
+}
+
+#display {
+  width: 8vmin;
+  height: 6vmin;
+  background: rgb(24, 10, 10);
+  border-radius: 15%;
+  border: 0.4vmin solid gray;
+  float: left;
+  display: table;
+}
+
+#display-content {
+  font-family: 'VT323', monospace;
+  color: rgb(184, 29, 29);
+  height: 100%;
+  font-size: 4vmin;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.btn {
+  width: 5vmin;
+  height: 5vmin;
+  background: gray;
+  display: inline-block;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  margin: -2.5vmin 0 0 -2.5vmin;
+  border: 0.8vmin solid gray;
+  box-sizing: border-box;
+  -webkit-box-shadow: 2px 2px 4px 1px   rgba(0,0,0,0.6);
+  -moz-box-shadow: 2px 2px 4px 1px rgba(0,0,0,0.6);
+  box-shadow: 2px 2px 4px 1px rgba(0,0,0,0.6);
+}
+
+.btn.start {
+  left: 15vmin;
+  background: rgb(232, 23, 23);
+}
+
+.btn.strict {
+  left: 24vmin;
+  background: rgb(235, 235, 20);
+}
+
+#switch-container {
+  width: 100%;
+  height: 20%;
+  text-align: center;
+}
+
+#switch-slot {
+  height: 4vmin;
+  width: 8vmin;
+  background: rgb(24, 24, 24);
+  display: inline-block;
+  border-radius: 10%;
+  margin-top: 1vmin;
+  position: relative;
+}
+
+#switch {
+  width: 2.8vmin;
+  height: 2.8vmin;
+  background: rgb(124, 185, 250);
+  box-sizing: border-box;
+  position: absolute;
+  border-radius: 15%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  margin-left: 0.5vmin;
+  margin-right: 0.5vmin;
+}
+
+#strict-led {
+  width: 1.5vmin;
+  height: 1.5vmin;
+  background: rgb(21, 8, 8);
+  border: 1px solid gray;
+  box-sizing: border-box;
+  border-radius: 50%;
+  position: absolute;
+  top: 16.4vmin;
+  left: 26.4vmin;
+}
+
+.inline-label {
+  position: absolute;
+  color: black;
+  top: 1.4vmin;
+  bottom: 0;
+  font-size: 1.5vmin;
+}
+
+.inline-label.left {
+  right: 9vmin;
+}
+
+.inline-label.right {
+  left: 9vmin;
+}
+
+.label {
+  font-size: 1.5vmin;
+  color: black;
+  position: absolute;
+  top: 7.5vmin;
+}
+
+.label.left {
+  left: 1.8vmin;
+}
+
+.label.middle {
+  left: 13vmin;
+}
+
+.label.right {
+  left: 21.5vmin;
+}
+
