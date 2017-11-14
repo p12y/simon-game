@@ -3,16 +3,9 @@ import './App.css';
 import Switch from './components/switch';
 import Button from './components/button';
 import Control from './components/control';
+import { generateSteps } from './helpers';
 
 let interval;
-
-function randNum(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function generateSteps(length) {
-  return Array.from(Array(length), () => randNum(1,4));
-}
 
 class App extends Component {
   constructor(props) {
@@ -100,7 +93,8 @@ class App extends Component {
       if (numClicks === seqLength) {
         seqLength += 1;
         this.setState({seqLength}, () => { 
-        this.setState({count: seqLength - 1});
+          this.setState({count: seqLength - 1
+        });
         this.playSequence(this.state.steps, seqLength);
       });
       }
