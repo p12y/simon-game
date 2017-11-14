@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Switch extends Component {
   render() {
-    const position = this.props.on ? 'auto': 0;
+    const position = this.props.on ? 'auto' : 0;
     return (
       <div onClick={this.props.onClick} id="switch-container">
         <div id="switch-slot">

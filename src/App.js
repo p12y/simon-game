@@ -39,7 +39,7 @@ class App extends Component {
     if (this.state.on === true) { 
       start = false;
       clearInterval(interval);
-      this.setState({pointer: null, userInput: [], seqLength: 2, count: null});
+      this.clearGame();
     };
 
     this.setState({start, on: !this.state.on});
@@ -93,11 +93,6 @@ class App extends Component {
   }
 
   validateInput() {
-    const loseGame = () => {
-      this.setState({userInput: [], steps: generateSteps(20), start: false, seqLength: 2});
-      this.flash();
-    }
-
     const numClicks = this.state.userInput.length;
     let { seqLength } = this.state;
 
@@ -110,16 +105,31 @@ class App extends Component {
       });
       }
     } else {
-      loseGame();
+      this.clearGame(true);
     }
   }
 
   flash() {
     let interval = setInterval(() => {
-      this.state.count !== '' ? this.setState({count: ''}) : this.setState({count: null})
+      this.state.count !== '' ? this.setState({count: ''}) : 
+        this.setState({count: null})
     }, 300);
 
     setTimeout(() => {clearInterval(interval)}, 2000);
+  }
+
+  clearGame(flash) {
+    this.setState(
+      {
+        userInput: [], 
+        steps: generateSteps(20), 
+        start: false, 
+        seqLength: 2, 
+        count: null
+      }
+    );
+    
+    if (flash) this.flash();
   }
 
   render() {
@@ -160,7 +170,9 @@ class App extends Component {
             <h1>Simon<span className="reg">®</span></h1>
             <div className="face-controls">
               <div id="display">
-                <div id="display-content" className={this.state.on ? 'on' : 'off'}>{count || count === '' ? count : '--'}</div>
+                <div id="display-content" className={this.state.on ? 'on' : 'off'}>
+                  {count || count === '' ? count : '--'}
+                </div>
               </div>
               <Button className="start" onClick={this.handleStart} />
               <Button className="strict" />
