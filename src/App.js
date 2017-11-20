@@ -4,8 +4,19 @@ import Switch from './components/switch';
 import Button from './components/button';
 import Control from './components/control';
 import { generateSteps } from './helpers';
+import sound_1 from './sounds/sound_1.mp3';
+import sound_2 from './sounds/sound_2.mp3';
+import sound_3 from './sounds/sound_3.mp3';
+import sound_4 from './sounds/sound_4.mp3';
 
 let interval;
+
+const SOUNDS = {
+  1: new Audio(sound_1),
+  2: new Audio(sound_2),
+  3: new Audio(sound_3),
+  4: new Audio(sound_4)
+};
 
 class App extends Component {
   constructor(props) {
@@ -32,7 +43,7 @@ class App extends Component {
     if (this.state.on === true) { 
       start = false;
       clearInterval(interval);
-      this.clearGame();
+      this.clearGame(true, false);
     };
 
     this.setState({start, on: !this.state.on});
@@ -46,28 +57,39 @@ class App extends Component {
   }
 
   playSequence(steps, length) {
+    if (String(this.state.userInput) === String(this.state.steps)) {
+      this.setState({count: 'WIN!'});
+      setTimeout(() => {
+        this.clearGame(true, false)
+      }, 2500);
+      return false;
+    }
+
     this.setState({acceptingInput: false, userInput: []});
 
     function play() {
       let i = 0;
       interval = setInterval(() => {
         this.setState({pointer: steps[i]});
+        SOUNDS[steps[i]].cloneNode(true).play();
         setTimeout(() => {
           this.setState({pointer: null});
-        }, 500);
+        }, 300);
         i++;
         if (i === length || i === steps.length) {
           clearInterval(interval);
           this.handlePlayStop(length);
         }
-      }, 1000);
+      }, this.calculateSpeed());
     }
 
     setTimeout(play.bind(this), 500);
   }
 
   handlePlayStop(count) {
-    this.setState({acceptingInput: true});
+    setTimeout(() => {
+      this.setState({acceptingInput: true});
+    }, 300);
   }
 
   handleUserInput(value) {
@@ -76,10 +98,11 @@ class App extends Component {
     }
 
     if (this.state.start && this.state.acceptingInput) {
+      SOUNDS[value].cloneNode(true).play();
       this.setState({pointer: value});
       setTimeout(() => {
         this.setState({pointer: null});
-      }, 200);
+      }, 300);
 
       this.setState({userInput: this.state.userInput.concat(value)}, validate);
     }
@@ -99,7 +122,7 @@ class App extends Component {
       });
       }
     } else {
-      this.clearGame(true);
+      this.clearGame(false, true);
     }
   }
 
@@ -112,18 +135,33 @@ class App extends Component {
     setTimeout(() => {clearInterval(interval)}, 2000);
   }
 
-  clearGame(flash) {
+  clearGame(reset, flash) {
     this.setState(
       {
         userInput: [], 
-        steps: generateSteps(20), 
+        steps: reset ? generateSteps(20) : this.state.steps, 
         start: false, 
         seqLength: 2, 
-        count: null
+        count: null,
+        acceptingInput: false
       }
     );
     
     if (flash) this.flash();
+  }
+
+  calculateSpeed() {
+    const { count } = this.state;
+    let speed = 1000;
+
+    if (count > 14) {
+      speed = 300;
+    } else if (count > 9) {
+      speed = 500;
+    } else if (count > 4) {
+      speed = 800;
+    }
+    return speed;
   }
 
   render() {
@@ -135,13 +173,13 @@ class App extends Component {
             <Control 
               onClick={this.handleUserInput} 
               value={1} 
-              className="top left" 
+              className={`top left ${this.state.acceptingInput ? 'input' : ''}`} 
               active={pointer === 1 ? true : false} 
             />
             <Control 
               onClick={this.handleUserInput} 
               value={2} 
-              className="top right" 
+              className={`top right ${this.state.acceptingInput ? 'input' : ''}`} 
               active={pointer === 2 ? true : false} 
             />
           </div>
@@ -149,13 +187,13 @@ class App extends Component {
           <Control 
             onClick={this.handleUserInput} 
             value={3} 
-            className="bottom left" 
+            className={`bottom left ${this.state.acceptingInput ? 'input' : ''}`} 
             active={pointer === 3 ? true : false} 
           />
           <Control 
             onClick={this.handleUserInput} 
             value={4} 
-            className="bottom right" 
+            className={`bottom right ${this.state.acceptingInput ? 'input' : ''}`} 
             active={pointer === 4 ? true : false} 
           />
           </div>

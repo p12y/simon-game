@@ -1,5 +1,11 @@
 body {
   background: url(https://www.toptal.com/designers/subtlepatterns/patterns/vintage-concrete.png);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;  
 }
 
 .App {
@@ -259,5 +265,9 @@ body {
 
 .label.right {
   left: 21.5vmin;
+}
+
+.input {
+  cursor: pointer;
 }
 
