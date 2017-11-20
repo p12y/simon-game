@@ -1,5 +1,5 @@
 body {
-  background: url(https://www.toptal.com/designers/subtlepatterns/patterns/vintage-concrete.png);
+  background: url('./img/background.png');
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
