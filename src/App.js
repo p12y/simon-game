@@ -41,10 +41,11 @@ class App extends Component {
 
   handleSwitch() {
     let start = this.state.start;
-    if (this.state.on === true) { 
+    if (this.state.on) { 
       start = false;
       clearInterval(interval);
       this.clearGame(true, false);
+      this.setState({strictMode: false});
     };
 
     this.setState({start, on: !this.state.on});
@@ -64,25 +65,19 @@ class App extends Component {
   }
 
   playSequence(steps, length) {
-    if (String(this.state.userInput) === String(this.state.steps)) {
-      this.setState({count: 'WIN!'});
-      setTimeout(() => {
-        this.clearGame(true, false)
-      }, 2500);
-      return false;
-    }
-
-    this.setState({acceptingInput: false, userInput: []});
-
     function play() {
       let i = 0;
+
       interval = setInterval(() => {
         this.setState({pointer: steps[i]});
         SOUNDS[steps[i]].cloneNode(true).play();
+
         setTimeout(() => {
           this.setState({pointer: null});
         }, 300);
+
         i++;
+
         if (i === length || i === steps.length) {
           clearInterval(interval);
           this.handlePlayStop(length);
@@ -90,6 +85,16 @@ class App extends Component {
       }, this.calculateSpeed());
     }
 
+    if (String(this.state.userInput) === String(this.state.steps)) {
+      this.setState({count: 'WIN!'});
+
+      setTimeout(() => {
+        this.clearGame(true, false)
+      }, 2500);
+      return false;
+    }
+
+    this.setState({acceptingInput: false, userInput: []});
     setTimeout(play.bind(this), 500);
   }
 
@@ -107,6 +112,7 @@ class App extends Component {
     if (this.state.start && this.state.acceptingInput) {
       SOUNDS[value].cloneNode(true).play();
       this.setState({pointer: value});
+
       setTimeout(() => {
         this.setState({pointer: null});
       }, 300);
@@ -161,11 +167,11 @@ class App extends Component {
     const { count } = this.state;
     let speed = 1000;
 
-    if (count > 14) {
+    if (count >= 15) {
       speed = 300;
-    } else if (count > 9) {
+    } else if (count >= 10) {
       speed = 500;
-    } else if (count > 4) {
+    } else if (count >= 5) {
       speed = 800;
     }
     return speed;
