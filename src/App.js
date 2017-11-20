@@ -24,7 +24,7 @@ class App extends Component {
     this.state = { 
       on: false,
       start: false,
-      strict: false,
+      strictMode: false,
       steps: generateSteps(20),
       acceptingInput: false,
       seqLength: 2,
@@ -36,6 +36,7 @@ class App extends Component {
      this.handleSwitch = this.handleSwitch.bind(this);
      this.handleStart = this.handleStart.bind(this);
      this.handleUserInput = this.handleUserInput.bind(this);
+     this.handleStrictClick = this.handleStrictClick.bind(this);
   }
 
   handleSwitch() {
@@ -47,6 +48,12 @@ class App extends Component {
     };
 
     this.setState({start, on: !this.state.on});
+  }
+
+  handleStrictClick() {
+    if (this.state.on) {
+      this.setState({strictMode: !this.state.strictMode});
+    }
   }
 
   handleStart() {
@@ -122,7 +129,7 @@ class App extends Component {
       });
       }
     } else {
-      this.clearGame(false, true);
+      this.state.strictMode ? this.clearGame(true, true) : this.clearGame(false, true);
     }
   }
 
@@ -198,7 +205,7 @@ class App extends Component {
           />
           </div>
           <div id="face">
-            <div id="strict-led" className="off"></div>
+            <div id="strict-led" className={this.state.strictMode ? 'on' : 'off'}></div>
             <h1>Simon<span className="reg">®</span></h1>
             <div className="face-controls">
               <div id="display">
@@ -207,7 +214,7 @@ class App extends Component {
                 </div>
               </div>
               <Button className="start" onClick={this.handleStart} />
-              <Button className="strict" />
+              <Button onClick={this.handleStrictClick} className="strict" />
               <span className="label left">COUNT</span>
               <span className="label middle">START</span>
               <span className="label right">STRICT</span>
