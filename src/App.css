@@ -271,3 +271,103 @@ body {
   cursor: pointer;
 }
 
+@media only screen and (max-width: 700px) {
+  #base {
+    width: 80vmin;
+    height: 80vmin;
+  }
+  
+  #face {
+    width: 40vmin;
+    height: 40vmin;
+  }
+  
+  #face h1 {
+    font-size: 8vmin;
+  }
+  
+  .reg {
+    font-size: 3vmin;
+    top: -3vmin;
+  }
+  
+  .face-controls {
+    margin: 3vmin;
+  }
+  
+  #display {
+    width: 8vmin;
+    height: 6vmin;
+  }
+  
+  #display-content {
+    font-size: 4vmin;
+  }
+  
+  .btn {
+    width: 5vmin;
+    height: 5vmin;
+    margin: -2.5vmin 0 0 -2.5vmin;
+    border: 0.8vmin solid rgb(55, 55, 55);
+  }
+  
+  .btn.start {
+    left: 15vmin;
+  }
+  
+  .btn.strict {
+    left: 24vmin;
+  }
+  
+  #switch-slot {
+    height: 4vmin;
+    width: 8vmin;
+    margin-top: 1vmin;
+    border: 0.2vmin solid rgb(55, 55, 55);
+  }
+  
+  #switch {
+    width: 3vmin;
+    height: 3vmin;;
+    margin-left: 0.2vmin;
+    margin-right: 0.2vmin;
+  }
+  
+  #strict-led {
+    width: 1.5vmin;
+    height: 1.5vmin;
+    border: 1px solid gray;
+    top: 16.4vmin;
+    left: 26.4vmin;
+  }
+  
+  .inline-label {
+    top: 1.4vmin;
+    font-size: 1.5vmin;
+  }
+  
+  .inline-label.left {
+    right: 9vmin;
+  }
+  
+  .inline-label.right {
+    left: 9vmin;
+  }
+  
+  .label {
+    font-size: 1.5vmin;
+    top: 7.5vmin;
+  }
+  
+  .label.left {
+    left: 1.8vmin;
+  }
+  
+  .label.middle {
+    left: 13vmin;
+  }
+  
+  .label.right {
+    left: 21.5vmin;
+  }
+}
