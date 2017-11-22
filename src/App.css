@@ -16,16 +16,16 @@ body {
 }
 
 #base {
-  width: 80vmin;
-  height: 80vmin;
+  width: 60vmin;
+  height: 60vmin;
   border-radius: 50%;
   position: relative;
   background: #373737;
 }
 
 #face {
-  width: 40vmin;
-  height: 40vmin;
+  width: 30vmin;
+  height: 30vmin;
   background: rgb(55, 55, 55);
   border-radius: 50%;
   position: absolute;
@@ -106,7 +106,7 @@ body {
 #face h1 {
   font-family: 'Fredoka One', cursive;
   text-align: center;
-  font-size: 8vmin;
+  font-size: 6vmin;
   margin-bottom: 0;
   color: rgb(23, 23, 23);
 }
@@ -125,8 +125,8 @@ body {
 }
 
 #display {
-  width: 8vmin;
-  height: 6vmin;
+  width: 6vmin;
+  height: 4vmin;
   background: rgb(24, 10, 10);
   border-radius: 15%;
   border: 0.4vmin solid rgb(55, 55, 55);
@@ -138,7 +138,7 @@ body {
   font-family: 'VT323', monospace;
   color: rgb(70, 12, 12);
   height: 100%;
-  font-size: 4vmin;
+  font-size: 3vmin;
   text-align: center;
   display: table-cell;
   vertical-align: middle;
@@ -149,15 +149,15 @@ body {
 }
 
 .btn {
-  width: 5vmin;
-  height: 5vmin;
+  width: 4vmin;
+  height: 4vmin;
   background: rgb(55, 55, 55);
   display: inline-block;
   border-radius: 50%;
   position: absolute;
   top: 50%;
-  margin: -2.5vmin 0 0 -2.5vmin;
-  border: 0.8vmin solid rgb(55, 55, 55);
+  margin: -2.2vmin 0 0 -2.5vmin;
+  border: 0.6vmin solid rgb(55, 55, 55);
   box-sizing: border-box;
   -webkit-box-shadow: 2px 2px 4px 1px   rgba(0,0,0,0.6);
   -moz-box-shadow: 2px 2px 4px 1px rgba(0,0,0,0.6);
@@ -172,12 +172,12 @@ body {
 }
 
 .btn.start {
-  left: 15vmin;
+  left: 12vmin;
   background: rgb(232, 23, 23);
 }
 
 .btn.strict {
-  left: 24vmin;
+  left: 18.5vmin;
   background: rgb(235, 235, 20);
 }
 
@@ -188,12 +188,12 @@ body {
 }
 
 #switch-slot {
-  height: 4vmin;
-  width: 8vmin;
+  height: 3vmin;
+  width: 6vmin;
   background: rgb(24, 24, 24);
   display: inline-block;
   border-radius: 10%;
-  margin-top: 1vmin;
+  margin-top: 0.2vmin;
   position: relative;
   box-sizing: border-box;
   border: 0.2vmin solid rgb(55, 55, 55);
@@ -201,8 +201,8 @@ body {
 }
 
 #switch {
-  width: 3vmin;
-  height: 3vmin;
+  width: 2vmin;
+  height: 2vmin;
   background: rgb(124, 185, 250);
   box-sizing: border-box;
   position: absolute;
@@ -217,15 +217,15 @@ body {
 }
 
 #strict-led {
-  width: 1.5vmin;
-  height: 1.5vmin;
+  width: 1.2vmin;
+  height: 1.2vmin;
   background: rgb(21, 8, 8);
   border: 1px solid gray;
   box-sizing: border-box;
   border-radius: 50%;
   position: absolute;
-  top: 16.4vmin;
-  left: 26.4vmin;
+  top: 12.5vmin;
+  left: 20.4vmin;
 }
 
 #strict-led.on {
@@ -235,36 +235,36 @@ body {
 .inline-label {
   position: absolute;
   color: black;
-  top: 1.4vmin;
+  top: 0.6vmin;
   bottom: 0;
-  font-size: 1.5vmin;
+  font-size: 1.2vmin;
 }
 
 .inline-label.left {
-  right: 9vmin;
+  right: 6.4vmin;
 }
 
 .inline-label.right {
-  left: 9vmin;
+  left: 6.4vmin;
 }
 
 .label {
-  font-size: 1.5vmin;
+  font-size: 1.2vmin;
   color: black;
   position: absolute;
-  top: 7.5vmin;
+  top: 5.2vmin;
 }
 
 .label.left {
-  left: 1.8vmin;
+  left: 1.2vmin;
 }
 
 .label.middle {
-  left: 13vmin;
+  left: 9.7vmin;
 }
 
 .label.right {
-  left: 21.5vmin;
+  left: 16vmin;
 }
 
 .input {
